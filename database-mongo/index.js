@@ -12,11 +12,22 @@ db.once('open', function() {
 });
 
 var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+  posts: String,
+  username:String,
+  password:String,
 });
 
 var Item = mongoose.model('Item', itemSchema);
+
+
+var saveData = function(data){
+  var obj = {
+    posts:data
+  }
+  console.log('daaaaaa',data)
+  var a = new Item(obj)
+  a.save();
+}
 
 var selectAll = function(callback) {
   Item.find({}, function(err, items) {
@@ -29,3 +40,4 @@ var selectAll = function(callback) {
 };
 
 module.exports.selectAll = selectAll;
+module.exports.saveData = saveData;
