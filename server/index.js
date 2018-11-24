@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 // app.use(express.static(__dirname + '/../angular-client'));
 // app.use(express.static(__dirname + '/../node_modules'));
 
-app.get('/items', function (req, res) {
+app.get('/sass.html', function (req, res) {
 
 	items.selectAll(function(err,items){
 		res.send(items)
@@ -23,33 +23,25 @@ app.get('/items', function (req, res) {
 
 	//res.send('hello iam there')
 
-
-
-
 });
 
 
-app.post('/items', function(req,res) {
+app.post('/sass.html', function(req,res) {
 
-	var message = req.body.message;
-	items.saveData(message);
+	items.saveData(req.body);
 	res.send('world is amazing');
 });
 
+// app.post('/sass.html',function(req,res){
+// 	items.selectAll(function(err,items){
+// 		res.send(items)
+// })
+
+
+
 
 ////////////////////////////////////////////////////////////////////////
-app.post('/signup',function(req,res) {
 
-});
-app.get('/signup', function(req,res){
-
-})
-app.post('/login',function(req,res){
-
-})
-app.get('/login',function(req,res){
-	
-})
 
 ////////////////////////////////////////////////////////////////////////
 

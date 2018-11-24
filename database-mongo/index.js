@@ -13,8 +13,7 @@ db.once('open', function() {
 
 var itemSchema = mongoose.Schema({
   posts: String,
-  username:String,
-  password:String,
+
 });
 
 var Item = mongoose.model('Item', itemSchema);
@@ -22,7 +21,8 @@ var Item = mongoose.model('Item', itemSchema);
 
 var saveData = function(data){
   var obj = {
-    posts:data
+    posts:data.message,
+
   }
   console.log('daaaaaa',data)
   var a = new Item(obj)
