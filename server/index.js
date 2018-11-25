@@ -18,6 +18,10 @@ app.get('/h', function (req, res) {
 
 	items.selectAll(function(err,items){
 		res.send(items)
+
+
+
+		
 })
 
 
