@@ -18,27 +18,28 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
-  facebook miniversion
+  Blogger
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-  -facebookminiversion
+  -miniversion of blogger
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 
-  i will work on mini version of facebook that i can 
- -post ideas
- -see friends posts
+  i will work on mini version of blogging website that i can 
+ -post articles
+ -delete which ever i want
 
 
 
 ## Problem ##
   > Describe the problem your product solves.
-  -
+  - blogging website easier to deal with
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  - user friendly blogging website
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
