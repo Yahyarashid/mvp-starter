@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://yahya:y123456@ds125821.mlab.com:25821/bloggerdatabase');
+
+
 
 var db = mongoose.connection;
 
@@ -12,15 +14,18 @@ db.once('open', function() {
 });
 
 var itemSchema = mongoose.Schema({
+  id:Number,
   posts: String,
 
 });
 
 var Item = mongoose.model('Item', itemSchema);
-
+var id=0;
 
 var saveData = function(data){
+
   var obj = {
+    id:++id,
     posts:data.message,
 
   }
@@ -41,3 +46,4 @@ var selectAll = function(callback) {
 
 module.exports.selectAll = selectAll;
 module.exports.saveData = saveData;
+module.exports.Item = Item;

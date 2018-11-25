@@ -32,6 +32,16 @@ app.post('/h', function(req,res) {
 	res.send('world is amazing');
 });
 
+app.get('/delete',function(req,res){
+
+	items.Item.deleteOne( { "id" : 1 } );
+
+	// items.selectAll(function(err,items){
+	// res.send(items)
+	res.send('hi there')
+})
+
+
 // app.post('/sass.html',function(req,res){
 // 	items.selectAll(function(err,items){
 // 		res.send(items)
@@ -44,8 +54,8 @@ app.post('/h', function(req,res) {
 
 
 ////////////////////////////////////////////////////////////////////////
-
-app.listen(3000, function() {
+var port = process.env.PORT||3000 
+app.listen(port, function() {
   console.log('listening on port 3000!');
 });
 

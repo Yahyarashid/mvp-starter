@@ -4,6 +4,7 @@ import $ from 'jquery';
 import List from './components/List.jsx';
 import Search from './components/search.jsx'
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+
 // import Route from 'react-router-dom/Route'
 
 
@@ -15,9 +16,14 @@ class App extends React.Component {
     }
   }
 
+  delete () {
+
+  }
+
   search (term) {
     console.log(`${term} was searched`);
     // TODO
+
     $.ajax({
       type:'POST',
       url:'/h',
@@ -55,8 +61,7 @@ render () {
           </div> 
           )}}
         />
-      <Route path="/list"  render = { () => {
-         console.log('fired')
+      <Route path="/"  render = { () => {
         return(
         <div>
           <List items={this.state.items}/>
