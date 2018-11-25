@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import List from './components/List.jsx';
 import Search from './components/search.jsx'
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+// import Route from 'react-router-dom/Route'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -17,7 +20,7 @@ class App extends React.Component {
     // TODO
     $.ajax({
       type:'POST',
-      url:'/sass.html',
+      url:'/h',
       data:{message:term},
       success: function(){
         //console.log('results',results)
@@ -28,7 +31,7 @@ class App extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/sass.html', 
+      url: '/h', 
       success: (data) => {
         this.setState({
           items: data
@@ -41,13 +44,30 @@ class App extends React.Component {
 
   }
 
-  render () {
-    return (<div className='container'>
-      <h1>Welcome to our blogger</h1>
-       <Search onSearch={this.search.bind(this)}/>
-      <List items={this.state.items}/>
-    </div>)
-  }
-}
+render () {
+   return(
+    <Router>
+    <div className='container'>
+        <Route exact path="/"  render={ () => {return(
+          <div >
+             <h1>Welcome to our blogger</h1>
+             <Search onSearch={this.search.bind(this)}/>
+          </div> 
+          )}}
+        />
+      <Route path="/list"  render = { () => {
+         console.log('fired')
+        return(
+        <div>
+          <List items={this.state.items}/>
+        </div>
+          )}} 
+      />
 
+    </div>
+
+    </Router>
+  )
+}
+}
 ReactDOM.render(<App />, document.getElementById('app'));

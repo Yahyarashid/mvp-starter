@@ -9,3 +9,9 @@ body{
 #hhh{
 	height: 500px;
 }
+.component {
+	color:black;
+	border-style: groove;
+    margin-bottom: 5px;
+
+}
