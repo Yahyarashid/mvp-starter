@@ -99,7 +99,7 @@ render () {
     <div className='container'>
         <Route exact path="/"  render={ () => {return(
           <div >
-             <h1>Welcome to our blogger</h1>
+             <h1>Welcome blogger</h1>
              <Search onSearch={this.search.bind(this)}/>
           </div> 
           )}}
