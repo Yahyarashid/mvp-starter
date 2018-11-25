@@ -16,7 +16,28 @@ class App extends React.Component {
     }
   }
 
+  delete(id){
+    console.log(id);
+        $.ajax({
+      type:'POST',
+      url:'/delete',
+      data:{id:id},
+      success: function(){
+        $.ajax({
+          type: 'GET',
+          url: '/h', 
+          success: (data) => {
+            console.log('success')
+          },
+          error: (err) => {
+            console.log('err', err);
+          }
+        });
+        console.log('success')
+      }
+    });
 
+  }
   search (term) {
     console.log(`${term} was searched`);
     // TODO
@@ -74,7 +95,7 @@ render () {
       <Route path="/"  render = { () => {
         return(
         <div>
-          <List items={this.state.items}/>
+          <List delete={this.delete.bind(this)} items={this.state.items}/>
         </div>
           )}} 
       />

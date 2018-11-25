@@ -4,7 +4,7 @@ const ListItem = (props) => (
   <div  className='component'>
   <p className="card-panel hoverable">
     { props.item.posts }
-    </p><button >delete</button>
+    </p><button onClick={ () => {props.delete(props.item.id)}}>delete</button>
   </div>
 )
 
