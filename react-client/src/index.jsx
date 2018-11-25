@@ -17,6 +17,7 @@ class App extends React.Component {
   }
 
   delete(id){
+    let context = this;
     console.log(id);
         $.ajax({
       type:'POST',
@@ -27,7 +28,18 @@ class App extends React.Component {
           type: 'GET',
           url: '/h', 
           success: (data) => {
-            console.log('success')
+                 $.ajax({
+          type: 'GET',
+          url: '/h', 
+          success: (data) => {
+            context.setState({
+              items: data
+            })
+          },
+          error: (err) => {
+            console.log('err', err);
+          }
+            });
           },
           error: (err) => {
             console.log('err', err);
