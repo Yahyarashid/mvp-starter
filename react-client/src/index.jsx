@@ -16,32 +16,42 @@ class App extends React.Component {
     }
   }
 
-  delete () {
-
-  }
 
   search (term) {
     console.log(`${term} was searched`);
     // TODO
-
+     let context = this;
     $.ajax({
       type:'POST',
       url:'/h',
       data:{message:term},
       success: function(){
-        //console.log('results',results)
+        $.ajax({
+          type: 'GET',
+          url: '/h', 
+          success: (data) => {
+            context.setState({
+              items: data
+            })
+          },
+          error: (err) => {
+            console.log('err', err);
+          }
+        });
         console.log('success')
       }
-    })
+    });
   }
 
   componentDidMount() {
     $.ajax({
+      type: 'GET',
       url: '/h', 
       success: (data) => {
         this.setState({
           items: data
         })
+        console.log(this.state.items)
       },
       error: (err) => {
         console.log('err', err);

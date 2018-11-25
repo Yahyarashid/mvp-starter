@@ -36,6 +36,7 @@ var saveData = function(data){
 
 var selectAll = function(callback) {
   Item.find({}, function(err, items) {
+    console.log('items',items)
     if(err) {
       callback(err, null);
     } else {

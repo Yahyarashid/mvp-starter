@@ -32,9 +32,15 @@ app.post('/h', function(req,res) {
 	res.send('world is amazing');
 });
 
-app.get('/delete',function(req,res){
+app.post('/delete',function(req,res){
 
-	items.Item.deleteOne( { "id" : 1 } );
+	//items.Item.deleteOne( { "id" : 4 } );
+	//items.Item.remove( { posts: "hello world this is me you can post here"} )
+	items.Item.deleteOne({ id:req.body.id}, function (err) {
+		if(err){
+			console.log(err)
+		}
+	});
 
 	// items.selectAll(function(err,items){
 	// res.send(items)
